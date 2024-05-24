@@ -1,6 +1,7 @@
 package spring.redis.CashMS.model;
 
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -15,13 +16,15 @@ public class Modul implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
+
+    @Column(columnDefinition = "TEXT")
+    private String json;
 
     public Modul() {
     }
 
-    public Modul(String name) {
-        this.name = name;
+    public Modul(String json) {
+        this.json = json;
     }
 
     public Long getId() {
@@ -32,11 +35,11 @@ public class Modul implements Serializable {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getJson() {
+        return json;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setJson(String json) {
+        this.json = json;
     }
 }
